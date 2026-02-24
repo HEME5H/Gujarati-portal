@@ -1,0 +1,138 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import React, \{ useState \} from 'react';\
+import \{ Book, Heart, Play, Coffee, ChevronRight, Star, Globe, Utensils \} from 'lucide-react';\
+\
+// --- COMPONENTS ---\
+\
+const NavItem = (\{ label \}) => (\
+  <a href="#" className="text-[#5D4037] font-medium hover:text-[#E65100] transition-colors">\{label\}</a>\
+);\
+\
+const FeatureCard = (\{ title, subtitle, icon: Icon, color \}) => (\
+  <div className="bg-white p-6 rounded-3xl shadow-sm border border-orange-100 hover:shadow-xl transition-all group cursor-pointer">\
+    <div className=\{`w-12 h-12 rounded-2xl $\{color\} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`\}>\
+      <Icon className="text-white" size=\{24\} />\
+    </div>\
+    <h3 className="font-bold text-xl text-[#5D4037]">\{title\}</h3>\
+    <p className="text-gray-500 text-sm mt-2">\{subtitle\}</p>\
+  </div>\
+);\
+\
+// --- MAIN PAGE ---\
+\
+export default function GujaratiPortal() \{\
+  const [subject, setSubject] = useState(\{ guj: "\uc0\u2745 \u2753 \u2690 ", eng: "I", suffix: "\u2730 \u2754 \u2690  \u2715 \u2753 \u2690 " \});\
+\
+  return (\
+    <div className="min-h-screen bg-[#FFF8E1] font-sans selection:bg-orange-200">\
+      \{/* Navigation */\}\
+      <nav className="flex items-center justify-between px-6 md:px-12 py-6 bg-white/50 backdrop-blur-md sticky top-0 z-50">\
+        <div className="flex items-center gap-2">\
+          <div className="w-10 h-10 bg-[#E65100] rounded-xl flex items-center justify-center font-black text-white text-2xl font-gujarati text-center leading-none pb-1">\uc0\u2711 </div>\
+          <span className="text-xl font-black tracking-tight text-[#5D4037]">GUJARATI<span className="text-[#E65100] text-sm ml-1">PORTAL</span></span>\
+        </div>\
+        <div className="hidden md:flex gap-8">\
+          <NavItem label="Foundations" />\
+          <NavItem label="Family" />\
+          <NavItem label="Food" />\
+          <NavItem label="Market" />\
+        </div>\
+        <button className="bg-[#006064] text-white px-6 py-2.5 rounded-full font-bold hover:bg-opacity-90 transition-all shadow-lg">\
+          Start Learning\
+        </button>\
+      </nav>\
+\
+      \{/* Hero Section */\}\
+      <header className="px-6 md:px-12 py-12 md:py-20 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">\
+        <div>\
+          <div className="inline-flex items-center gap-2 bg-orange-100 text-[#E65100] px-4 py-1.5 rounded-full text-sm font-bold mb-6">\
+            <Star size=\{16\} fill="currentColor" />\
+            <span>FOR HERITAGE LEARNERS</span>\
+          </div>\
+          <h1 className="text-5xl md:text-6xl font-black text-[#5D4037] leading-tight mb-6">\
+            Learn Gujarati <br />\
+            <span className="text-[#E65100] italic">through connection.</span>\
+          </h1>\
+          <p className="text-lg text-gray-600 mb-10 max-w-lg leading-relaxed">\
+            The quickest way to fluency. Master the script, navigate the family tree, and survive a Gujarati dinner party with confidence.\
+          </p>\
+          <div className="flex flex-col sm:flex-row gap-4">\
+            <button className="bg-[#E65100] text-white px-8 py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform shadow-xl shadow-orange-600/30">\
+              Begin Level 1 <ChevronRight />\
+            </button>\
+          </div>\
+        </div>\
+\
+        \{/* Interactive Preview Box */\}\
+        <div className="relative">\
+          <div className="absolute inset-0 bg-[#006064] rounded-[40px] rotate-3 opacity-10"></div>\
+          <div className="relative bg-white p-8 rounded-[40px] shadow-2xl border border-orange-50">\
+             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Sentence Mixer Preview</p>\
+             <div className="space-y-4 mb-6">\
+                <div className="p-6 bg-orange-50 rounded-2xl border-2 border-orange-100 text-center">\
+                   <p className="text-4xl font-bold text-[#E65100] mb-2">\{subject.guj\} \uc0\u2714 \u2750  \u2730 \u2752 \u2741 \u2753 \u2690  \u2715 \u2753 \u2690 </p>\
+                   <p className="text-sm text-gray-500 italic">\{subject.eng\} drink tea (I tea drink)</p>\
+                </div>\
+             </div>\
+             <div className="grid grid-cols-2 gap-3">\
+                <button \
+                  onClick=\{() => setSubject(\{ guj: "\uc0\u2745 \u2753 \u2690 ", eng: "I" \})\}\
+                  className=\{`py-2 rounded-xl font-bold transition-all $\{subject.eng === "I" ? 'bg-[#006064] text-white' : 'bg-gray-100 text-gray-500'\}`\}\
+                >\
+                  I (\uc0\u2745 \u2753 \u2690 )\
+                </button>\
+                <button \
+                  onClick=\{() => setSubject(\{ guj: "\uc0\u2724 \u2734 \u2759 ", eng: "You" \})\}\
+                  className=\{`py-2 rounded-xl font-bold transition-all $\{subject.eng === "You" ? 'bg-[#006064] text-white' : 'bg-gray-100 text-gray-500'\}`\}\
+                >\
+                  You (\uc0\u2724 \u2734 \u2759 )\
+                </button>\
+             </div>\
+          </div>\
+        </div>\
+      </header>\
+\
+      \{/* Modules Section */\}\
+      <section className="px-6 md:px-12 py-16 max-w-7xl mx-auto">\
+        <h2 className="text-3xl font-black text-[#5D4037] mb-12">Curriculum Roadmap</h2>\
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">\
+          <FeatureCard \
+            title="Foundations" \
+            subtitle="The 'No-Bar' script and SOV logic." \
+            icon=\{Book\} \
+            color="bg-orange-600" \
+          />\
+          <FeatureCard \
+            title="Family Tree" \
+            subtitle="Kaka, Mama, and Masi explained." \
+            icon=\{Heart\} \
+            color="bg-teal-700" \
+          />\
+          <FeatureCard \
+            title="Food & Dining" \
+            subtitle="Navigating the Thali and hospitality." \
+            icon=\{Utensils\} \
+            color="bg-amber-600" \
+          />\
+          <FeatureCard \
+            title="The Marketplace" \
+            subtitle="How to negotiate and ask 'Ketla-nu che?'" \
+            icon=\{Globe\} \
+            color="bg-rose-600" \
+          />\
+        </div>\
+      </section>\
+\
+      \{/* Footer */\}\
+      <footer className="text-center py-12 text-gray-400 text-sm border-t border-orange-100">\
+        <p>\'a9 2026 The Modern Gujarati Portal \'95 Built to help people connect.</p>\
+      </footer>\
+    </div>\
+  );\
+\}}
